@@ -20,10 +20,10 @@ dag_conf = DAG('sparkairflow', default_args=default_args, schedule_interval='0 8
 
 
 def start():
-    print("Mulai!!")
+    print("Start the Job!!")
 
 def finish():
-    print("Job Anda Sudah Selesai.")
+    print("Your job is finished.")
 
 def search_hashtags(consumer_key, consumer_secret, access_token, access_token_secret, hashtag_phrase):
 
