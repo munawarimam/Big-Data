@@ -21,8 +21,8 @@ public class jointable {
         .getOrCreate();
 
         Dataset<Row> datajoin = spark.sql("select b.id, b.artists, b.name, " +
-        "(select count(*) from bigproject.tweetspotify a where a.id_song = b.id) as total " +
-        "from bigproject.dataspotify b order by total desc");
+        "(select count(*) from spotify.tweetspotify a where a.id_song = b.id) as total " +
+        "from spotify.dataspotify b order by total desc");
         datajoin.show();
 
         jointable hive = new jointable();
@@ -31,6 +31,6 @@ public class jointable {
     }
     private void popularsong(Dataset<Row> data) {
         Dataset<Row> alldata = data.select("*");
-        alldata.write().mode("overwrite").format("parquet").saveAsTable("bigproject.popularsong");
+        alldata.write().mode("overwrite").format("parquet").saveAsTable("spotify.popularsong");
     }
 }
