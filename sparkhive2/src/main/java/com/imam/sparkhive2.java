@@ -13,7 +13,7 @@ public class sparkhive2 {
         String warehouseLocation = new File("spark-warehouse").getAbsolutePath();
         SparkSession spark = SparkSession
         .builder()  
-        .appName("Data E-Commerce Java Spark")
+        .appName("Data E-Commerce")
         .config("spark.sql.warehouse.dir", warehouseLocation)
         .enableHiveSupport()
         .getOrCreate();
