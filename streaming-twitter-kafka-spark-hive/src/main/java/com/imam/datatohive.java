@@ -35,6 +35,6 @@ public class datatohive {
 
     private void dataspotify(Dataset<Row> data) {
         Dataset<Row> alldata = data.select("*");
-        alldata.write().mode("overwrite").format("parquet").saveAsTable("bigproject.dataspotify");
+        alldata.write().mode("overwrite").format("parquet").saveAsTable("spotify.dataspotify");
     }
 }
