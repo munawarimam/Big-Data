@@ -16,7 +16,7 @@ public class cleansingdata {
         String warehouseLocation = new File("spark-warehouse").getAbsolutePath();
         SparkSession spark = SparkSession
         .builder()
-        .appName("Project Spark SQL Hive Airflow")
+        .appName("Spark Hive")
         .config("spark.sql.warehouse.dir", warehouseLocation)
         .enableHiveSupport()
         .getOrCreate();
