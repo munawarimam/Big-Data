@@ -19,7 +19,7 @@ public class structuredstream_readkafka {
         String warehouseLocation = new File("spark-warehouse").getAbsolutePath();
         SparkSession spark = SparkSession.builder()
         .master("local")
-        .appName("Big Project")
+        .appName("Streaming Twitter")
         .config("spark.sql.warehouse.dir", warehouseLocation)
         .config("spark.driver.memory", "10g")
         .config("spark.executor.memory", "10g")
@@ -57,7 +57,7 @@ public class structuredstream_readkafka {
         .outputMode("append")
         .format("csv")
         .option("checkpointLocation", "/user/hive/warehouse/streamingtweet")
-        .option("path", "hdfs://bigproject-m/user/hive/warehouse/bigproject.db/tweetspotify")
+        .option("path", "hdfs://bigproject-m/user/hive/warehouse/spotify.db/tweetspotify")
         .option("truncate", "false")
         .option("failOnDataLoss", "false")
         .start();
