@@ -11,7 +11,7 @@ public class sparkhive {
         String warehouseLocation = new File("spark-warehouse").getAbsolutePath();
         SparkSession spark = SparkSession
         .builder()  
-        .appName("Data Covid Java Spark")
+        .appName("Data Covid")
         .config("spark.sql.warehouse.dir", warehouseLocation)
         .enableHiveSupport()
         .getOrCreate();
