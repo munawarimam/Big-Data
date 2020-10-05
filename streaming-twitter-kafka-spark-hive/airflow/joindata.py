@@ -12,13 +12,13 @@ default_args = {
     'retries': 1,
     'concurrency': 5
     }
-dag_conf = DAG('bigproject', default_args=default_args, schedule_interval='0 8 1-30 * *', catchup=False)
+dag_conf = DAG('bigproject', default_args=default_args, schedule_interval='0 8 1-3 * *', catchup=False)
 
 def start():
-    print("Mulai!!")
+    print("Start!!")
 
 def finish():
-    print("Job Anda Sudah Selesai.")
+    print("Your job is finished.")
 
 mulai = PythonOperator(task_id='starting_job', python_callable=start, dag=dag_conf)
 joindata = BashOperator(task_id='joindata_job', \
