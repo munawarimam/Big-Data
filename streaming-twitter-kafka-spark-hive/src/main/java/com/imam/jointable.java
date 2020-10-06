@@ -19,6 +19,12 @@ public class jointable {
         .config("spark.sql.warehouse.dir", warehouseLocation)
         .enableHiveSupport()
         .getOrCreate();
+        
+        Dataset<Row> alldata = spark.sql("select * from spotify.tweetspotify").dropDuplicates("date", "username", "urls");
+        alldata.write()
+        .format("parquet")
+        .mode("overwrite")
+        .saveAsTable("spotify.tweetspotify");
 
         Dataset<Row> datajoin = spark.sql("select b.id, b.artists, b.name, " +
         "(select count(*) from spotify.tweetspotify a where a.id_song = b.id) as total " +
